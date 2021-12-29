@@ -1,0 +1,258 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>BSSUtil 1.1</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+    font-family:Trebuchet MS;
+    background-color:#f6e58d;
+    
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: url("cursor.png"),auto;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 20px;
+    font-family:Trebuchet MS;
+}
+    
+/* change background color of tab on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* create an active/current tablink class */
+.tab button.active {
+    background-color: #fdcb6e;
+}
+
+/* style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}    
+    h1 {
+        
+    }
+p {
+    font-size: 60px;
+    margin-top: 3px;
+}
+
+.timerbuttons {
+    text-align:center;
+    font-size: 30px;
+    border-radius: 10px;
+    font-family:Trebuchet MS;
+    transition: 0.3s;
+    cursor: url("cursor.png"),auto;
+}
+    
+.timerdisplays {
+    height:20px;
+    line-height: 44px;
+    justify-content: center;
+    align-content: center;
+    font-size: 35px;
+    vertical-align:middle;
+}
+.timershit {
+    display: flex;
+    justify-content:space-between;
+
+}
+
+</style>
+</head>    
+
+<script>
+const FIVE_MIN = 300;
+const TEN_MIN = 600;
+const THIRTY_MIN = 1800;
+const ONE_HOUR = 3600;
+const TWO_HOUR = 7200;
+const FOUR_HOUR = 14400;
+const ONE_DAY = 86400; 
+</script>
+    
+<body>    
+<h1>BSSUtil 1.1</h1>
+<h2>Created by Reverbs & Bee Wife</h2>
+
+<div class="tab">
+    <button class="tablinks" onclick="openTab(event, 'Other')" id="defaultTab">Other Timers</button>
+    <button class="tablinks" onclick="openTab(event, 'Monster')">Monster Timers</button>
+    <button class="tablinks" onclick="openTab(event, 'Beesmas')">Beesmas Timers</button>
+</div>
+
+<div id="Other" class="tabcontent">
+    <div class="timershit"> 
+        <button id="bluebutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;blueboost&quot;, &quot;bluebutton&quot;)">Start Blue Boost Timer</button>
+         <p id="blueboost" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id="redbutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;redboost&quot;, &quot;redbutton&quot;)">Start Red Boost Timer</button>
+        <p id="redboost" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+        <br>
+    <div class="timershit">
+        <button id="whitebutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;whiteboost&quot;, &quot;whitebutton&quot;)">Start White Boost Timer</button>
+        <p id="whiteboost" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+</div>
+
+<div id="Monster" class="tabcontent">
+    <div class="timershit">
+        <button id = "cloverbutton" class="timerbuttons" onclick="startTimer(FIVE_MIN, &quot;clover&quot;, &quot;cloverbutton&quot;)">Start Clover Enemy Timer</button>
+        <p id="clover" class="timerdisplays">0d 0h 05m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "bluefieldbutton" class="timerbuttons" onclick="startTimer(FIVE_MIN, &quot;bluefield&quot;, &quot;bluefieldbutton&quot;)">Start Blue Flower Enemy Timer</button>
+        <p id="bluefield" class="timerdisplays">0d 0h 05m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "strawberrybutton" class="timerbuttons" onclick="startTimer(FIVE_MIN, &quot;strawberry&quot;, &quot;strawberrybutton&quot;)">Start Strawberry Enemy Timer</button>
+        <p id="strawberry" class="timerdisplays">0d 0h 05m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "spiderbutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;spider&quot;, &quot;spiderbutton&quot;)">Start Spider Enemy Timer</button>
+        <p id="spider" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "bamboobutton" class="timerbuttons" onclick="startTimer(FIVE_MIN, &quot;bamboo&quot;, &quot;bamboobutton&quot;)">Start Bamboo Enemy Timer</button>
+        <p id="bamboo" class="timerdisplays">0d 0h 05m 00s</p>
+    </div>
+    <br>
+     <div class="timershit">
+        <button id = "rosebutton" class="timerbuttons" onclick="startTimer((TEN_MIN * 2), &quot;rose&quot;, &quot;rosebutton&quot;)">Start Rose Enemy Timer</button>
+        <p id="rose" class="timerdisplays">0d 0h 20m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "pinebutton" class="timerbuttons" onclick="startTimer((TEN_MIN * 2), &quot;pine&quot;, &quot;pinebutton&quot;)">Start Pine Tree Enemy Timer</button>
+        <p id="pine" class="timerdisplays">0d 0h 20m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "werewolfbutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;werewolf&quot;, &quot;werewolfbutton&quot;)">Start Werewolf Enemy Timer</button>
+        <p id="werewolf" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "pinerhbut" class="timerbuttons" onclick="startTimer(FIVE_MIN, &quot;pinerh&quot;, &quot;pinerhbut&quot;)">Start Pineapple (Rhino) Enemy Timer</button>
+        <p id="pinerh" class="timerdisplays">0d 0h 05m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "pinemabut" class="timerbuttons" onclick="startTimer((TEN_MIN * 2), &quot;pinema&quot;, &quot;pinemabut&quot;)">Start Pineapple (Mantis) Enemy Timer</button>
+        <p id="pinema" class="timerdisplays">0d 0h 20m 00s</p>
+    </div>
+    <br>
+</div>
+
+<div id="Beesmas" class="tabcontent">
+    <div class="timershit">
+        <button id = "wreathbutton" class="timerbuttons" onclick="startTimer(THIRTY_MIN, &quot;wreath&quot;, &quot;wreathbutton&quot;)">Start Wreath Timer</button>
+        <p id="wreath" class="timerdisplays">0d 0h 30m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "housebutton" class="timerbuttons" onclick="startTimer(TWO_HOUR, &quot;house&quot;, &quot;housebutton&quot;)">Start GingerBear House Timer</button>
+        <p id="house" class="timerdisplays">0d 2h 00m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "stockingbutton" class="timerbuttons" onclick="startTimer(ONE_HOUR, &quot;stocking&quot;, &quot;stockingbutton&quot;)">Start Stocking Timer</button>
+        <p id="stocking" class="timerdisplays">0d 1h 00m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "feastbutton" class="timerbuttons" onclick="startTimer((ONE_HOUR + THIRTY_MIN), &quot;feast&quot;, &quot;feastbutton&quot;)">Start Feast Timer</button>
+        <p id="feast" class="timerdisplays">0d 1h 30m 00s</p>
+    </div>
+    <br>
+    <div class="timershit">
+        <button id = "snowbearbutton" class="timerbuttons" onclick="startTimer((ONE_HOUR + THIRTY_MIN), &quot;snowbear&quot;, &quot;snowbearbutton&quot;)">Start Snow Bear Timer</button>
+        <p id="snowbear" class="timerdisplays">0d 1h 30m 00s</p>
+    </div>
+</div>
+    
+<script>
+//drives functionality of the tabs
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+document.getElementById("defaultTab").click();
+</script>    
+    
+<script>
+//drives the timers
+//duration: length of the timer
+//pid: paragraph id for the timer to be updated
+//bid: button id to be disabled when the timer starts
+function startTimer(duration, pid, bid) {
+    //end time of the timer
+    var timerEnd = new Date().getTime() + (duration * 1000) + 100; 
+    //update every second
+    var x = setInterval(function(){     
+        //get current date/time
+        var now = new Date().getTime();
+        
+        //duration of the countdown
+        var distance = timerEnd - now;
+        document.getElementById(bid).disabled = true;
+     
+        //calculate days, hours, minutes, seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+        //output result on that timer's pid
+        document.getElementById(pid).innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+        //write text when countdown finishes
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById(pid).innerHTML = "Timer done!";
+            document.getElementById(bid).disabled = false;
+            var audio = new Audio("alarm.mp3");
+            audio.play();
+        }}, 500);
+}
+</script>
+</body>
+</html>
