@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>BSSUtil 1.2b</title>
+    <title>BSSUtil 1.3</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -17,11 +17,7 @@
             color: #ffffff;
         }
 
-        h1 {
-            color: #ffffff;
-        }
-
-        h2 {
+        h1,h2 {
             color: #ffffff;
         }
 
@@ -79,8 +75,6 @@
             background: rgba(0, 0, 0, 20%);
         }
 
-
-
         .timerbuttons {
             text-align: center;
             font-size: 30px;
@@ -98,9 +92,10 @@
             font-family: Trebuchet MS;
             transition: 0.3s;
             cursor: url("cursor.png"), auto;
-            margin-left: auto;
+            margin-left: 10px;
             width: 245px;
             background-color: #99aab5;
+            margin-left:auto;
         }
 
         .timerdisplays {
@@ -123,6 +118,27 @@
             height: 46px;
             justify-content: right;
         }
+        
+        .listformat {
+            text-align: left;
+            height: 50px;
+            width: 100%;
+            border-radius:10px;
+            font-family: Trebuchet MS;
+            font-size: 24px;
+            color:white;
+        }
+        
+        .optionelements {
+            color:white;
+            font-size: 30px;
+        }
+        
+        .menuticks {
+            transform: scale(2.0);
+            vertical-align: middle;
+        }
+        
     </style>
 </head>
 
@@ -137,7 +153,7 @@
 </script>
 
 <body>
-    <h1>BSSUtil 1.2b</h1>
+    <h1>BSSUtil 1.3</h1>
     <h2>Created by Reverbs & Batyoullfly</h2>
 
 
@@ -152,13 +168,15 @@
             onmouseup="mouseup()">Memory Match Timers</button>
         <button class="tablinks" onclick="openTab(event, 'Dispenser')" onmousedown="mousedown()"
             onmouseup="mouseup()">Dispenser Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Settings')" onmousedown="mousedown()"
+            onmouseup="mouseup()">Settings</button>
         <button class="tablinks" onclick="openTab(event, 'Changelog')" onmousedown="mousedown()"
             onmouseup="mouseup()">Update Log</button>
     </div>
 
     <div id="Other" class="tabcontent">
         <div class="timershit">
-            <button id="bluebutton" class="timerbuttons"
+            <button id="bluebutton" class="timerbuttons" name="Blue Boost"
                 onclick="driveTimer(&quot;blueboost&quot;, &quot;bluebutton&quot;, &quot;bluereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Blue
                 Boost Timer</button>
@@ -172,7 +190,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="redbutton" class="timerbuttons"
+            <button id="redbutton" class="timerbuttons" name="Red Boost"
                 onclick="driveTimer(&quot;redboost&quot;, &quot;redbutton&quot;, &quot;redreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Red Boost
                 Timer</button>
@@ -186,7 +204,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="whitebutton" class="timerbuttons"
+            <button id="whitebutton" class="timerbuttons" name="White Boost"
                 onclick="driveTimer(&quot;whiteboost&quot;, &quot;whitebutton&quot;, &quot;whitereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 White Boost Timer</button>
@@ -200,7 +218,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="clockbutton" class="timerbuttons"
+            <button id="clockbutton" class="timerbuttons" name="Wealth Clock"
                 onclick="driveTimer(&quot;clock&quot;, &quot;clockbutton&quot;, &quot;clockreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Wealth
                 Clock Timer</button>
@@ -214,7 +232,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="antbutton" class="timerbuttons"
+            <button id="antbutton" class="timerbuttons" name="Ant Pass"
                 onclick="driveTimer(&quot;ant&quot;, &quot;antbutton&quot;, &quot;antreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Ant Pass
                 Timer</button>
@@ -228,7 +246,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="brownbearbutton" class="timerbuttons"
+            <button id="brownbearbutton" class="timerbuttons" name="Brown Bear"
                 onclick="driveTimer(&quot;brownbear&quot;, &quot;brownbearbutton&quot;, &quot;brownbearreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Brown Bear Timer</button>
@@ -240,11 +258,41 @@
                 <input type="text" class="timerdisplays" id="brownbear" value="0d 1h 0m 0s ">
             </form>
         </div>
+        <br>
+        <div class="timershit">
+            <button id="windshrinebutton" class="timerbuttons" name="Wind Shrine"
+                onclick="driveTimer(&quot;windshrine&quot;, &quot;windshrinebutton&quot;, &quot;windshrinereset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">Start
+                Wind Shrine Timer</button>
+            <button id="windshrinereset" class="resetbuttons"
+                onclick="resetTimer(ONE_HOUR, &quot;windshrine&quot;, &quot;windshrinebutton&quot;, &quot;windshrinereset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" id="windshrine" value="0d 1h 0m 0s ">
+            </form>
+        </div>
     </div>
 
     <div id="Monster" class="tabcontent">
+    <div class="timershit">
+            <img src="icons/mushroom.png" class="icons">
+            <button id="mushroombutton" class="timerbuttons" name="(LBG) Mushroom Enemies"
+                onclick="driveTimer(&quot;mushroom&quot;, &quot;mushroombutton&quot;, &quot;mushroomreset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">(LBG)
+                Start Mushroom Enemy Timer</button>
+            <button id="mushroomreset" class="resetbuttons"
+                onclick="resetTimer(FIVE_MIN, &quot;mushroom&quot;, &quot;mushroombutton&quot;, &quot;mushroomreset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" id="mushroom" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>    
         <div class="timershit">
-            <button id="cloverbutton" class="timerbuttons"
+            <img src="icons/clover.png" class="icons">
+            <button id="cloverbutton" class="timerbuttons" name="(LBG RNO) Clover Enemies"
                 onclick="driveTimer(&quot;clover&quot;, &quot;cloverbutton&quot;, &quot;cloverreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(LBG RNO)
                 Start Clover Enemy Timer</button>
@@ -258,7 +306,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="bluefieldbutton" class="timerbuttons"
+            <img src="icons/blueflower.png" class="icons">
+            <button id="bluefieldbutton" class="timerbuttons" name="(RNO) Blue Flower Enemies"
                 onclick="driveTimer(&quot;bluefield&quot;, &quot;bluefieldbutton&quot;, &quot;bluefieldreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(RNO)
                 Start Blue Flower Enemy Timer</button>
@@ -272,7 +321,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="strawberrybutton" class="timerbuttons"
+            <img src="icons/strawberry.png" class="icons">
+            <button id="strawberrybutton" class="timerbuttons" name="(LBG) Strawberry Enemies"
                 onclick="driveTimer(&quot;strawberry&quot;, &quot;strawberrybutton&quot;, &quot;strawberryreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(LBG)
                 Start Strawberry Enemy Timer</button>
@@ -286,7 +336,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="spiderbutton" class="timerbuttons"
+            <img src="icons/spider.png" class="icons">
+            <button id="spiderbutton" class="timerbuttons" name="(SPR) Spider"
                 onclick="driveTimer(&quot;spider&quot;, &quot;spiderbutton&quot;, &quot;spiderreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(SPR) Start
                 Spider Enemy Timer</button>
@@ -300,7 +351,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="bamboobutton" class="timerbuttons"
+            <img src="icons/bamboo.png" class="icons">
+            <button id="bamboobutton" class="timerbuttons" name="(RNO) Bamboo Enemies"
                 onclick="driveTimer(&quot;bamboo&quot;, &quot;bamboobutton&quot;, &quot;bambooreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(RNO) Start
                 Bamboo Enemy Timer</button>
@@ -314,7 +366,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="rosebutton" class="timerbuttons"
+            <img src="icons/rose.png" class="icons">
+            <button id="rosebutton" class="timerbuttons" name="(SPN) Rose Enemies"
                 onclick="driveTimer(&quot;rose&quot;, &quot;rosebutton&quot;, &quot;rosereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(SPN) Start Rose
                 Enemy Timer</button>
@@ -328,7 +381,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="pinebutton" class="timerbuttons"
+            <img src="icons/pinetree.png" class="icons">
+            <button id="pinebutton" class="timerbuttons" name="(MTS) Pine Enemies"
                 onclick="driveTimer(&quot;pine&quot;, &quot;pinebutton&quot;, &quot;pinereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(MTS) Start Pine
                 Enemy Timer</button>
@@ -342,21 +396,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="werewolfbutton" class="timerbuttons"
-                onclick="driveTimer(&quot;werewolf&quot;, &quot;werewolfbutton&quot;, &quot;werewolfreset&quot;)"
-                onmousedown="mousedown()" onmouseup="mouseup()">(WLF)
-                Start Werewolf Enemy Timer</button>
-            <button id="werewolfreset" class="resetbuttons"
-                onclick="resetTimer(ONE_HOUR, &quot;werewolf&quot;, &quot;werewolfbutton&quot;, &quot;werewolfreset&quot;)"
-                onmousedown="mousedown()" onmouseup="mouseup()">Reset
-                to Default</button>
-            <form>
-                <input type="text" class="timerdisplays" id="werewolf" value="0d 1h 0m 0s ">
-            </form>
-        </div>
-        <br>
-        <div class="timershit">
-            <button id="pinerhinobutton" class="timerbuttons"
+            <img src="icons/pineapple.png" class="icons">
+            <button id="pinerhinobutton" class="timerbuttons" name="(RNO) Pineapple Enemies"
                 onclick="driveTimer(&quot;pinerhino&quot;, &quot;pinerhinobutton&quot;, &quot;pinerhinoreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(RNO)
                 Start Pineapple Enemy Timer</button>
@@ -370,7 +411,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="pinemantisbutton" class="timerbuttons"
+            <img src="icons/pineapple.png" class="icons">
+            <button id="pinemantisbutton" class="timerbuttons" name="(MTS) Pineapple Enemies"
                 onclick="driveTimer(&quot;pinemantis&quot;, &quot;pinemantisbutton&quot;, &quot;pinemantisreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">(MTS)
                 Start Pineapple Enemy Timer</button>
@@ -384,7 +426,23 @@
         </div>
         <br>
         <div class="timershit">
-            <button onmouseup="mouseup()" id="mondobutton" class="timerbuttons"
+            <img src="icons/werewolf.png" class="icons">
+            <button id="werewolfbutton" class="timerbuttons" name="Werewolf"
+                onclick="driveTimer(&quot;werewolf&quot;, &quot;werewolfbutton&quot;, &quot;werewolfreset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">
+                Start Werewolf Enemy Timer</button>
+            <button id="werewolfreset" class="resetbuttons"
+                onclick="resetTimer(ONE_HOUR, &quot;werewolf&quot;, &quot;werewolfbutton&quot;, &quot;werewolfreset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" id="werewolf" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timershit">
+            <img src="icons/mondo.png" class="icons">
+            <button id="mondobutton" class="timerbuttons" name="Mondo Chick"
                 onclick="driveTimer(&quot;mondo&quot;, &quot;mondobutton&quot;, &quot;mondoreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Mondo
                 Chick Timer</button>
@@ -398,7 +456,8 @@
         </div>
         <br>
         <div class="timershit">
-            <button onmouseup="mouseup()" id="commandobutton" class="timerbuttons"
+            <img src="icons/mondo.png" class="icons">
+            <button id="commandobutton" class="timerbuttons" name="Commando Chick"
                 onclick="driveTimer(&quot;commando&quot;, &quot;commandobutton&quot;, &quot;commandoreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Commando Chick Timer</button>
@@ -414,7 +473,7 @@
 
     <div id="Beesmas" class="tabcontent">
         <div class="timershit">
-            <button onmouseup="mouseup()" id="wreathbutton" class="timerbuttons"
+            <button id="wreathbutton" class="timerbuttons" name="Wreath"
                 onclick="driveTimer(&quot;wreath&quot;, &quot;wreathbutton&quot;, &quot;wreathreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Wreath
                 Timer</button>
@@ -428,7 +487,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button onmouseup="mouseup()" id="housebutton" class="timerbuttons"
+            <button id="housebutton" class="timerbuttons" name="GingerBear House"
                 onclick="driveTimer(&quot;house&quot;, &quot;housebutton&quot;, &quot;housereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 GingerBear House Timer</button>
@@ -442,7 +501,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="stockingbutton" class="timerbuttons"
+            <button id="stockingbutton" class="timerbuttons" name="Stocking"
                 onclick="driveTimer(&quot;stocking&quot;, &quot;stockingbutton&quot;, &quot;stockingreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Stocking Timer</button>
@@ -456,7 +515,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="feastbutton" class="timerbuttons"
+            <button id="feastbutton" class="timerbuttons" name="Feast"
                 onclick="driveTimer(&quot;feast&quot;, &quot;feastbutton&quot;, &quot;feastreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Feast
                 Timer</button>
@@ -470,7 +529,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="snowbearbutton" class="timerbuttons"
+            <button id="snowbearbutton" class="timerbuttons" name="Snow Bear"
                 onclick="driveTimer(&quot;snowbear&quot;, &quot;snowbearbutton&quot;, &quot;snowbearreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Snow Bear Timer</button>
@@ -486,7 +545,7 @@
 
     <div id="Memory" class="tabcontent">
         <div class="timershit">
-            <button id="matchAbutton" class="timerbuttons"
+            <button id="matchAbutton" class="timerbuttons" name="Match (25K)"
                 onclick="driveTimer(&quot;matchA&quot;, &quot;matchAbutton&quot;, &quot;matchAreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Match
                 (25K) Timer</button>
@@ -500,7 +559,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="matchBbutton" class="timerbuttons"
+            <button id="matchBbutton" class="timerbuttons" name="Match (500K)"
                 onclick="driveTimer(&quot;matchB&quot;, &quot;matchBbutton&quot;, &quot;matchBreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Mega
                 Match (500K) Timer</button>
@@ -514,7 +573,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="matchCbutton" class="timerbuttons"
+            <button id="matchCbutton" class="timerbuttons" name="Match (Night)"
                 onclick="driveTimer(&quot;matchC&quot;, &quot;matchCbutton&quot;, &quot;matchCreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Night
                 Match (5M) Timer</button>
@@ -528,7 +587,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="matchDbutton" class="timerbuttons"
+            <button id="matchDbutton" class="timerbuttons" name="Match (25M)"
                 onclick="driveTimer(&quot;matchD&quot;, &quot;matchDbutton&quot;, &quot;matchDreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Extreme Match (25M) Timer</button>
@@ -544,7 +603,7 @@
 
     <div id="Dispenser" class="tabcontent">
         <div class="timershit">
-            <button id="blueberrybutton" class="timerbuttons"
+            <button id="blueberrybutton" class="timerbuttons" name="Blueberry Dispenser"
                 onclick="driveTimer(&quot;blueberry&quot;, &quot;blueberrybutton&quot;, &quot;blueberryreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Blueberry Dispenser Timer</button>
@@ -558,7 +617,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="strawdisbutton" class="timerbuttons"
+            <button id="strawdisbutton" class="timerbuttons" name="Strawberry Dispenser"
                 onclick="driveTimer(&quot;strawdis&quot;, &quot;strawdisbutton&quot;, &quot;strawdisreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Strawberry Dispenser Timer</button>
@@ -572,7 +631,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="spawnclubbutton" class="timerbuttons"
+            <button id="spawnclubbutton" class="timerbuttons" name="Club Dispenser (Honey)"
                 onclick="driveTimer(&quot;spawnclub&quot;, &quot;spawnclubbutton&quot;, &quot;spawnclubreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Honey Club Dispenser Timer</button>
@@ -586,7 +645,7 @@
         </div>
         <br>
         <div class="timershit">
-            <button id="pineclubbutton" class="timerbuttons"
+            <button id="pineclubbutton" class="timerbuttons" name="Club Dispenser (Treat)"
                 onclick="driveTimer(&quot;pineclub&quot;, &quot;pineclubbutton&quot;, &quot;pineclubreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start
                 Treat Club Dispenser Timer</button>
@@ -599,13 +658,37 @@
             </form>
         </div>
     </div>
+    
+    <div id="Settings" class ="tabcontent">
+        <div class="optionelements">
+             <input type="checkbox" id="mutebutton" class="menuticks">
+            <label for="mutebutton"> Mute Timer Alarms</label>
+            <br>
+            <input type="checkbox" id="alarmchooser" class="menuticks">
+             <label for="alarmchooser"> Use Basic Alarm Sound (Warning: Annoying) </label>
+        </div> 
+    
+    </div>
 
     <div id="Changelog" class="tabcontent">
         <p style="white-space:pre-line">
+            BSSUtil ver. 1.3
+            Increased functionality was the focus, but also adds some nice QOL:
+            - Added images to the Monster Timers tab for visual clarity.
+            - Added Finished Timers list to better identify what timers went off (and in what order).
+            - Added Settings tab:
+            + Added option to mute timer alert sounds
+            + Added option to switch between the funny streamer man's alarm and a more basic (and way more annoying) alarm.
+            +++ Currently the audio plays to the end regardless of if the timer is reset. This will be addressed in a future update.
+            - Added Mushroom timer (which was somehow missing this whole time?)
+            - Added Wind Shrine timer
+            
+            
             BSSUtil ver. 1.2b
             Hotfix for looping audio, plus other updates.
             - Audio no longer loops/stacks when a timer completes.
             - Incorrectly formatted custom time inputs are no longer accepted, which would previously break the program.
+            
             
             BSSUtil ver. 1.2a
             Hotfix for bug related to timers ending.
@@ -614,6 +697,7 @@
             - This is temporarily fixed by disabling the "Start Timer" button until the timer is refreshed with the
             reset button.
             - A more permanent fix will be added in 1.3.
+            
 
             Planned updates:
             - Unique timer end sounds for different timers/custom sound
@@ -625,6 +709,14 @@
             - Index tab for reference
             - More clarity as to what timer finished last
         </p>
+    </div>
+  
+    
+    <div class="listofended">
+        <h1>Finished Timers (Most Recent Listed First):</h1>
+        <form>
+        <input type="text" id="thelist" class="listformat" value="" disabled>
+        </form>
     </div>
 
     <footer>hehe surprise :D</footer>
@@ -703,6 +795,7 @@
                 //write text when countdown finishes
                 if (distance < 0) {
                     endTimer(pid, bid, resetbid);
+                    
                 }
             }, 500));
         }
@@ -720,6 +813,10 @@
                 clearInterval(x[parseInt(clearId)]);
                 //re enable button
                 document.getElementById(bid).disabled = false;
+                //only update the list if the timer is done
+                if (document.getElementById(pid).value == "Timer done!") {
+                    updateList(bid);
+                }
                 //write the default time to the screen
                 duration = duration * 1000;
                 var days = Math.floor(duration / (1000 * 60 * 60 * 24));
@@ -732,7 +829,6 @@
         }
 
         function parseInput(value) {
-
             const valueArray = value.split(" ");
             var days = (valueArray[0] == undefined) ? 0 : parseInt(valueArray[0]);
             var hours = (valueArray[1] == undefined) ? 0 : parseInt(valueArray[1]);
@@ -764,12 +860,39 @@
         }
         
         function endTimer(pid, bid, resetbid) {
+            updateList(bid);
             var resetButton = document.getElementById(resetbid);
             var clearId = resetButton.getAttribute("title");
             clearInterval(x[parseInt(clearId)]);
             document.getElementById(pid).value = "Timer done!";
-            var audio = new Audio("alarm.mp3");
-            audio.play();
+            if (document.getElementById("mutebutton").checked == false) {
+                if (document.getElementById("alarmchooser").checked == false) {
+                    var audio = new Audio("alarm.mp3");
+                }
+                else {
+                    var audio = new Audio("alarm-basic.mp3");
+                }
+                audio.play();
+            }
+        }
+        
+        var bidArray = [];
+        
+        function updateList(bid) {
+            var name = document.getElementById(bid).name;
+            var list = document.getElementById("thelist");
+            
+            if (bidArray.includes(bid)) {
+                var newVal = list.value.replace("- " + name + " -", "");
+                list.value = newVal;
+                var index = bidArray.indexOf(bid);
+                bidArray.splice(index, 1);
+            }
+            else {
+                bidArray.push(bid);
+                var ogvalue = list.value;
+                list.value =  "- " + name + " -" + ogvalue;
+            }
         }
     </script>
 </body>
