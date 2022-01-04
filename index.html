@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>BSSUtil 1.3</title>
+    <title>BSSUtil 1.3a</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -17,7 +17,8 @@
             color: #ffffff;
         }
 
-        h1,h2 {
+        h1,
+        h2 {
             color: #ffffff;
         }
 
@@ -68,6 +69,8 @@
         .tabcontent {
             display: none;
             padding: 6px 12px;
+            padding-top: 14px;
+            padding-bottom: 12px;
             border: 1px solid #ccc;
             border-top: none;
             border-bottom-left-radius: 10px;
@@ -95,7 +98,7 @@
             margin-left: 10px;
             width: 245px;
             background-color: #99aab5;
-            margin-left:auto;
+            margin-left: auto;
         }
 
         .timerdisplays {
@@ -118,27 +121,26 @@
             height: 46px;
             justify-content: right;
         }
-        
+
         .listformat {
             text-align: left;
             height: 50px;
             width: 100%;
-            border-radius:10px;
+            border-radius: 10px;
             font-family: Trebuchet MS;
             font-size: 24px;
-            color:white;
+            color: white;
         }
-        
+
         .optionelements {
-            color:white;
+            color: white;
             font-size: 30px;
         }
-        
+
         .menuticks {
             transform: scale(2.0);
             vertical-align: middle;
         }
-        
     </style>
 </head>
 
@@ -153,7 +155,7 @@
 </script>
 
 <body>
-    <h1>BSSUtil 1.3</h1>
+    <h1>BSSUtil 1.3a</h1>
     <h2>Created by Reverbs & Batyoullfly</h2>
 
 
@@ -178,14 +180,14 @@
         <div class="timershit">
             <button id="bluebutton" class="timerbuttons" name="Blue Boost"
                 onclick="driveTimer(&quot;blueboost&quot;, &quot;bluebutton&quot;, &quot;bluereset&quot;)"
-                onmousedown="mousedown()" onmouseup="mouseup()">Start Blue
-                Boost Timer</button>
+                onmousedown="mousedown()" onmouseup="mouseup()">Start Blue Boost Timer</button>
             <button id="bluereset" class="resetbuttons"
                 onclick="resetTimer(ONE_HOUR, &quot;blueboost&quot;, &quot;bluebutton&quot;, &quot;bluereset&quot;)"
-                onmousedown="mousedown()" onmouseup="mouseup()">Reset
+                onmousedown="mousedown()" onmouseup="mouseup()">Reset 
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="blueboost" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="blueboost"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -199,7 +201,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="redboost" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="redboost"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -212,9 +215,10 @@
                 onclick="resetTimer(ONE_HOUR, &quot;whiteboost&quot;, &quot;whitebutton&quot;, &quot;whitereset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
-                <form>
-                    <input type="text" class="timerdisplays" id="whiteboost" value="0d 1h 0m 0s ">
-                </form>
+            <form>
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="whiteboost"
+                    value="0d 1h 0m 0s ">
+            </form>
         </div>
         <br>
         <div class="timershit">
@@ -222,13 +226,14 @@
                 onclick="driveTimer(&quot;clock&quot;, &quot;clockbutton&quot;, &quot;clockreset&quot;)"
                 onmousedown="mousedown()" onmouseup="mouseup()">Start Wealth
                 Clock Timer</button>
-                <button id="clockreset" class="resetbuttons"
-                    onclick="resetTimer(ONE_HOUR, &quot;clock&quot;, &quot;clockbutton&quot;, &quot;clockreset&quot;)"
-                    onmousedown="mousedown()" onmouseup="mouseup()">Reset
-                    to Default</button>
-                <form>
-                    <input type="text" class="timerdisplays" id="clock" value="0d 1h 0m 0s ">
-                </form>
+            <button id="clockreset" class="resetbuttons"
+                onclick="resetTimer(ONE_HOUR, &quot;clock&quot;, &quot;clockbutton&quot;, &quot;clockreset&quot;)"
+                onmousedown="mousedown()" onmouseup="mouseup()">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="clock"
+                    value="0d 1h 0m 0s ">
+            </form>
         </div>
         <br>
         <div class="timershit">
@@ -241,7 +246,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset to
                 Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="ant" value="0d 2h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="ant"
+                    value="0d 2h 0m 0s ">
             </form>
         </div>
         <br>
@@ -255,7 +261,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="brownbear" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="brownbear"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -269,13 +276,14 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="windshrine" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="windshrine"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
     </div>
 
     <div id="Monster" class="tabcontent">
-    <div class="timershit">
+        <div class="timershit">
             <img src="icons/mushroom.png" class="icons">
             <button id="mushroombutton" class="timerbuttons" name="(LBG) Mushroom Enemies"
                 onclick="driveTimer(&quot;mushroom&quot;, &quot;mushroombutton&quot;, &quot;mushroomreset&quot;)"
@@ -286,10 +294,11 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="mushroom" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="mushroom"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
-        <br>    
+        <br>
         <div class="timershit">
             <img src="icons/clover.png" class="icons">
             <button id="cloverbutton" class="timerbuttons" name="(LBG RNO) Clover Enemies"
@@ -301,7 +310,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="clover" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="clover"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
         <br>
@@ -316,7 +326,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="bluefield" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="bluefield"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
         <br>
@@ -331,7 +342,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="strawberry" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="strawberry"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
         <br>
@@ -346,7 +358,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="spider" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="spider"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -361,7 +374,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="bamboo" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="bamboo"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
         <br>
@@ -376,7 +390,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="rose" value="0d 0h 20m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="rose"
+                    value="0d 0h 20m 0s ">
             </form>
         </div>
         <br>
@@ -391,7 +406,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="pine" value="0d 0h 20m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="pine"
+                    value="0d 0h 20m 0s ">
             </form>
         </div>
         <br>
@@ -406,7 +422,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="pinerhino" value="0d 0h 5m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="pinerhino"
+                    value="0d 0h 5m 0s ">
             </form>
         </div>
         <br>
@@ -421,7 +438,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="pinemantis" value="0d 0h 20m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="pinemantis"
+                    value="0d 0h 20m 0s ">
             </form>
         </div>
         <br>
@@ -436,7 +454,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="werewolf" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="werewolf"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -451,7 +470,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="mondo" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="mondo"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -466,7 +486,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="commando" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="commando"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
     </div>
@@ -482,7 +503,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="wreath" value="0d 0h 30m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="wreath"
+                    value="0d 0h 30m 0s ">
             </form>
         </div>
         <br>
@@ -496,7 +518,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="house" value="0d 2h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="house"
+                    value="0d 2h 0m 0s ">
             </form>
         </div>
         <br>
@@ -510,7 +533,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="stocking" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="stocking"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -524,7 +548,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="feast" value="0d 1h 30m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="feast"
+                    value="0d 1h 30m 0s ">
             </form>
         </div>
         <br>
@@ -538,7 +563,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="snowbear" value="0d 1h 30m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="snowbear"
+                    value="0d 1h 30m 0s ">
             </form>
         </div>
     </div>
@@ -554,7 +580,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="matchA" value="0d 2h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="matchA"
+                    value="0d 2h 0m 0s ">
             </form>
         </div>
         <br>
@@ -568,7 +595,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="matchB" value="0d 4h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="matchB"
+                    value="0d 4h 0m 0s ">
             </form>
         </div>
         <br>
@@ -582,7 +610,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="matchC" value="0d 6h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="matchC"
+                    value="0d 6h 0m 0s ">
             </form>
         </div>
         <br>
@@ -596,7 +625,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="matchD" value="0d 8h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="matchD"
+                    value="0d 8h 0m 0s ">
             </form>
         </div>
     </div>
@@ -612,7 +642,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="blueberry" value="0d 4h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="blueberry"
+                    value="0d 4h 0m 0s ">
             </form>
         </div>
         <br>
@@ -626,7 +657,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="strawdis" value="0d 4h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="strawdis"
+                    value="0d 4h 0m 0s ">
             </form>
         </div>
         <br>
@@ -640,7 +672,8 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="spawnclub" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="spawnclub"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
         <br>
@@ -654,42 +687,75 @@
                 onmousedown="mousedown()" onmouseup="mouseup()">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" id="pineclub" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" onkeypress="return event.keyCode != 13" id="pineclub"
+                    value="0d 1h 0m 0s ">
             </form>
         </div>
     </div>
-    
-    <div id="Settings" class ="tabcontent">
+    <script>
+        var timerbuttons = document.getElementsByClassName("timerbuttons");
+        var timerinputs = document.getElementsByClassName("timerdisplays");
+        for (let i = 0; i < timerbuttons.length; i++) {
+            let input = timerinputs[i];
+            let button = timerbuttons[i];
+            input.addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    event.preventDefault();
+                    button.click();
+                }
+
+            })
+        }
+    </script>
+    <div id="Settings" class="tabcontent">
         <div class="optionelements">
-             <input type="checkbox" id="mutebutton" class="menuticks">
+            <input type="checkbox" id="mutebutton" class="menuticks" onclick="mute(false)">
             <label for="mutebutton"> Mute Timer Alarms</label>
             <br>
             <input type="checkbox" id="alarmchooser" class="menuticks">
-             <label for="alarmchooser"> Use Basic Alarm Sound (Warning: Annoying) </label>
-        </div> 
-    
+            <label for="alarmchooser"> Use Basic Alarm Sound (Warning: Annoying) </label>
+            <br>
+            <label for="volumeslider">Alarm Volume</label>
+            <input type="range" min="0" max="100" class="slider" id="volumeslider" onmouseup="playAlarm()">
+            <label for="volumeslider" id="percent"></label>
+            <script>
+                var slider = document.getElementById("volumeslider");
+                var percent = document.getElementById("percent");
+                percent.innerHTML = slider.value + "%";
+                slider.oninput = function () { percent.innerHTML = this.value + "%"; };
+            </script>
+        </div>
+
     </div>
 
     <div id="Changelog" class="tabcontent">
         <p style="white-space:pre-line">
+            BSSUtil ver 1.3a
+            Mostly backend changes to support future alarm updates.
+            - Adds volume slider in settings.
+            - Mute button now mutes active sounds.
+            
             BSSUtil ver. 1.3
             Increased functionality was the focus, but also adds some nice QOL:
             - Added images to the Monster Timers tab for visual clarity.
             - Added Finished Timers list to better identify what timers went off (and in what order).
             - Added Settings tab:
             + Added option to mute timer alert sounds
-            + Added option to switch between the funny streamer man's alarm and a more basic (and way more annoying) alarm.
-            +++ Currently the audio plays to the end regardless of if the timer is reset. This will be addressed in a future update.
+            + Added option to switch between the funny streamer man's alarm and a more basic (and way more annoying)
+            alarm.
+            +++ Currently the audio plays to the end regardless of if the timer is reset. This will be addressed in a
+            future update.
             - Added Mushroom timer (which was somehow missing this whole time?)
             - Added Wind Shrine timer
-            
-            
+
+
             BSSUtil ver. 1.2b
             Hotfix for looping audio, plus other updates.
             - Audio no longer loops/stacks when a timer completes.
             - Incorrectly formatted custom time inputs are no longer accepted, which would previously break the program.
-            
-            
+
+
             BSSUtil ver. 1.2a
             Hotfix for bug related to timers ending.
             - When a timer ended, pressing the corresponding "Start Timer" button would begin the timer with a null
@@ -697,7 +763,7 @@
             - This is temporarily fixed by disabling the "Start Timer" button until the timer is refreshed with the
             reset button.
             - A more permanent fix will be added in 1.3.
-            
+
 
             Planned updates:
             - Unique timer end sounds for different timers/custom sound
@@ -710,15 +776,15 @@
             - More clarity as to what timer finished last
         </p>
     </div>
-  
-    
+
+
     <div class="listofended">
         <h1>Finished Timers (Most Recent Listed First):</h1>
         <form>
-        <input type="text" id="thelist" class="listformat" value="" disabled>
+            <input type="text" id="thelist" class="listformat" value="" disabled>
         </form>
     </div>
-
+  
     <footer>hehe surprise :D</footer>
     <script>
         function mousedown() {
@@ -735,6 +801,40 @@
                 buttons[i].style.cursor = "url('cursor.png'),auto";
             }
         }
+
+        const audios = [];
+
+        function clearAudios() {
+            for (const audio of audios) {
+                audios.pop();
+            }
+        }
+        function mute() {
+            var checkboxValue = document.getElementById("mutebutton").checked;
+            for (const audio of audios) {
+                audio.mute = checkboxValue;
+                if (checkboxValue == true) {
+                    audio.pause();
+                    audio.load();
+                }
+            }
+        }
+        function playAlarm() {
+            let audio;
+            if (document.getElementById("mutebutton").checked == false) {
+                if (document.getElementById("alarmchooser").checked == false) {
+                    audio = new Audio("alarm.mp3");
+                    audios.push(audio);
+                }
+                else {
+                    audio = new Audio("alarm-basic.mp3");
+                    audios.push(audio);
+                }
+                audio.volume = document.getElementById("volumeslider").value / 100;
+                audio.play();
+            }
+        }
+
         //drives functionality of the tabs
         function openTab(evt, tabName) {
             var i, tabcontent, tablinks;
@@ -795,19 +895,20 @@
                 //write text when countdown finishes
                 if (distance < 0) {
                     endTimer(pid, bid, resetbid);
-                    
+
                 }
             }, 500));
         }
 
         //resets the timer
         function resetTimer(duration, pid, bid, resetbid) {
+            clearAudios();
             //get the button, handles uncertainty
             var resetButton = document.getElementById(resetbid);
-            if (resetButton.innerHTML == "Reset to Default") {
-                resetButton.innerHTML = "Are you sure?";
+            if (resetButton.innerText == "Reset to Default") {
+                resetButton.innerText = "Are you sure?";
             } else {
-                resetButton.innerHTML = "Reset to Default";
+                resetButton.innerText = "Reset to Default";
                 //get the interval id to be cleared
                 var clearId = resetButton.getAttribute("title");
                 clearInterval(x[parseInt(clearId)]);
@@ -835,10 +936,6 @@
             var minutes = (valueArray[2] == undefined) ? 0 : parseInt(valueArray[2]);
             var seconds = (valueArray[3] == undefined) ? 0 : parseInt(valueArray[3]);
 
-            console.log(days);
-            console.log(hours);
-            console.log(minutes);
-            console.log(seconds);
             // Note: NaN is evaluated as false 
             if (isNaN(days) || isNaN(hours) || isNaN(minutes) || isNaN(seconds)) {
                 return -1;
@@ -852,36 +949,30 @@
             var realValue = parseInput(ogValue);
             if (realValue == -1) {
                 var audio = new Audio("missedthatone.mp3");
+                audio.volume = document.getElementById("volumeslider").value / 100;
+                audios.push(audio);
                 audio.play();
                 setTimeout(function () { alert("Please enter 4 numbers") }, 100);
                 return;
             }
             startTimer(realValue, pid, bid, resetbid);
         }
-        
+
         function endTimer(pid, bid, resetbid) {
             updateList(bid);
             var resetButton = document.getElementById(resetbid);
             var clearId = resetButton.getAttribute("title");
             clearInterval(x[parseInt(clearId)]);
             document.getElementById(pid).value = "Timer done!";
-            if (document.getElementById("mutebutton").checked == false) {
-                if (document.getElementById("alarmchooser").checked == false) {
-                    var audio = new Audio("alarm.mp3");
-                }
-                else {
-                    var audio = new Audio("alarm-basic.mp3");
-                }
-                audio.play();
-            }
+            playAlarm();
         }
-        
+
         var bidArray = [];
-        
+
         function updateList(bid) {
             var name = document.getElementById(bid).name;
             var list = document.getElementById("thelist");
-            
+
             if (bidArray.includes(bid)) {
                 var newVal = list.value.replace("- " + name + " -", "");
                 list.value = newVal;
@@ -891,7 +982,7 @@
             else {
                 bidArray.push(bid);
                 var ogvalue = list.value;
-                list.value =  "- " + name + " -" + ogvalue;
+                list.value = "- " + name + " -" + ogvalue;
             }
         }
     </script>
