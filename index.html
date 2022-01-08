@@ -1,0 +1,545 @@
+<!DOCTYPE HTML>
+<html>
+<!-- TODO: change update list to UL -->
+<head>
+    <title>BSSUtil 1.3b</title>
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="scripts/cookies.js"></script>
+    <script src="scripts/alarm.js"></script>
+    <script src="scripts/enterkey.js" defer="true"></script>
+    <script src="scripts/cursor.js" defer="true"></script>
+    <script src="scripts/timer.js" defer="true"></script>
+    <script src="scripts/initcookies.js" defer="true"></script>
+    <script src="scripts/tabs.js" defer="true"></script>
+</head>
+
+<body>
+    <h1>BSSUtil 1.3b</h1>
+    <h2>Created by Reverbs & Batyoullfly</h2>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Other')" id="defaultTab" name="Other">Other Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Monster')" name="Monster">Monster Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Beesmas')" name="Beesmas">Beesmas Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Memory')" name="Memory">Memory Match Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Dispenser')" name="Dispenser">Dispenser Timers</button>
+        <button class="tablinks" onclick="openTab(event, 'Settings')" name="Settings">Settings</button>
+        <button class="tablinks" onclick="openTab(event, 'Changelog')" name="Changelog">Update Log</button>
+    </div>
+    <div id="Other" class="tabcontent">
+        <div class="timerrow">
+            <button id="bluebutton" class="timerbuttons" name="Blue Boost"
+                onclick="driveTimer('blueboost', 'bluebutton', 'bluereset')">Start Blue Boost Timer</button>
+            <button id="bluereset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'blueboost', 'bluebutton', 'bluereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="blueboost" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="redbutton" class="timerbuttons" name="Red Boost"
+                onclick="driveTimer('redboost', 'redbutton', 'redreset')">Start Red Boost
+                Timer</button>
+            <button id="redreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'redboost', 'redbutton', 'redreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="redboost" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="whitebutton" class="timerbuttons" name="White Boost"
+                onclick="driveTimer('whiteboost', 'whitebutton', 'whitereset')">Start
+                White Boost Timer</button>
+            <button id="whitereset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'whiteboost', 'whitebutton', 'whitereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="whiteboost" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="clockbutton" class="timerbuttons" name="Wealth Clock"
+                onclick="driveTimer('clock', 'clockbutton', 'clockreset')">Start Wealth
+                Clock Timer</button>
+            <button id="clockreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'clock', 'clockbutton', 'clockreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="clock" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="antbutton" class="timerbuttons" name="Ant Pass"
+                onclick="driveTimer('ant', 'antbutton', 'antreset')">Start Ant Pass
+                Timer</button>
+            <button id="antreset" class="resetbuttons"
+                onclick="resetTimer(2*HOUR, 'ant', 'antbutton', 'antreset')">Reset to
+                Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="ant" value="0d 2h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="brownbearbutton" class="timerbuttons" name="Brown Bear"
+                onclick="driveTimer('brownbear', 'brownbearbutton', 'brownbearreset')">Start
+                Brown Bear Timer</button>
+            <button id="brownbearreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'brownbear', 'brownbearbutton', 'brownbearreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="brownbear" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="windshrinebutton" class="timerbuttons" name="Wind Shrine"
+                onclick="driveTimer('windshrine', 'windshrinebutton', 'windshrinereset')">Start
+                Wind Shrine Timer</button>
+            <button id="windshrinereset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'windshrine', 'windshrinebutton', 'windshrinereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="windshrine" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+    </div>
+
+    <div id="Monster" class="tabcontent">
+        <div class="timerrow">
+            <img src="media/monstericons/mushroom.png" class="icons">
+            <button id="mushroombutton" class="timerbuttons" name="(LBG) Mushroom Enemies"
+                onclick="driveTimer('mushroom', 'mushroombutton', 'mushroomreset')">(LBG)
+                Start Mushroom Enemy Timer</button>
+            <button id="mushroomreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'mushroom', 'mushroombutton', 'mushroomreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="mushroom" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/clover.png" class="icons">
+            <button id="cloverbutton" class="timerbuttons" name="(LBG RNO) Clover Enemies"
+                onclick="driveTimer('clover', 'cloverbutton', 'cloverreset')">(LBG RNO)
+                Start Clover Enemy Timer</button>
+            <button id="cloverreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'clover', 'cloverbutton', 'cloverreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="clover" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/blueflower.png" class="icons">
+            <button id="bluefieldbutton" class="timerbuttons" name="(RNO) Blue Flower Enemies"
+                onclick="driveTimer('bluefield', 'bluefieldbutton', 'bluefieldreset')">(RNO)
+                Start Blue Flower Enemy Timer</button>
+            <button id="bluefieldreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'bluefield', 'bluefieldbutton', 'bluefieldreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="bluefield" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/strawberry.png" class="icons">
+            <button id="strawberrybutton" class="timerbuttons" name="(LBG) Strawberry Enemies"
+                onclick="driveTimer('strawberry', 'strawberrybutton', 'strawberryreset')">(LBG)
+                Start Strawberry Enemy Timer</button>
+            <button id="strawberryreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'strawberry', 'strawberrybutton', 'strawberryreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="strawberry" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/spider.png" class="icons">
+            <button id="spiderbutton" class="timerbuttons" name="(SPR) Spider"
+                onclick="driveTimer('spider', 'spiderbutton', 'spiderreset')">(SPR) Start
+                Spider Enemy Timer</button>
+            <button id="spiderreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'spider', 'spiderbutton', 'spiderreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="spider" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/bamboo.png" class="icons">
+            <button id="bamboobutton" class="timerbuttons" name="(RNO) Bamboo Enemies"
+                onclick="driveTimer('bamboo', 'bamboobutton', 'bambooreset')">(RNO) Start
+                Bamboo Enemy Timer</button>
+            <button id="bambooreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'bamboo', 'bamboobutton', 'bambooreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="bamboo" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/rose.png" class="icons">
+            <button id="rosebutton" class="timerbuttons" name="(SPN) Rose Enemies"
+                onclick="driveTimer('rose', 'rosebutton', 'rosereset')">(SPN) Start Rose
+                Enemy Timer</button>
+            <button id="rosereset" class="resetbuttons"
+                onclick="resetTimer((10*MINUTE * 2), 'rose', 'rosebutton', 'rosereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="rose" value="0d 0h 20m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/pinetree.png" class="icons">
+            <button id="pinebutton" class="timerbuttons" name="(MTS) Pine Enemies"
+                onclick="driveTimer('pine', 'pinebutton', 'pinereset')">(MTS) Start Pine
+                Enemy Timer</button>
+            <button id="pinereset" class="resetbuttons"
+                onclick="resetTimer((10*MINUTE * 2), 'pine', 'pinebutton', 'pinereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="pine" value="0d 0h 20m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/pineapple.png" class="icons">
+            <button id="pinerhinobutton" class="timerbuttons" name="(RNO) Pineapple Enemies"
+                onclick="driveTimer('pinerhino', 'pinerhinobutton', 'pinerhinoreset')">(RNO)
+                Start Pineapple Enemy Timer</button>
+            <button id="pinerhinoreset" class="resetbuttons"
+                onclick="resetTimer(5*MINUTE, 'pinerhino', 'pinerhinobutton', 'pinerhinoreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="pinerhino" value="0d 0h 5m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/pineapple.png" class="icons">
+            <button id="pinemantisbutton" class="timerbuttons" name="(MTS) Pineapple Enemies"
+                onclick="driveTimer('pinemantis', 'pinemantisbutton', 'pinemantisreset')">(MTS)
+                Start Pineapple Enemy Timer</button>
+            <button id="pinemantisreset" class="resetbuttons"
+                onclick="resetTimer((10*MINUTE * 2), 'pinemantis', 'pinemantisbutton', 'pinemantisreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="pinemantis" value="0d 0h 20m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/werewolf.png" class="icons">
+            <button id="werewolfbutton" class="timerbuttons" name="Werewolf"
+                onclick="driveTimer('werewolf', 'werewolfbutton', 'werewolfreset')">
+                Start Werewolf Enemy Timer</button>
+            <button id="werewolfreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'werewolf', 'werewolfbutton', 'werewolfreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="werewolf" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/mondo.png" class="icons">
+            <button id="mondobutton" class="timerbuttons" name="Mondo Chick"
+                onclick="driveTimer('mondo', 'mondobutton', 'mondoreset')">Start Mondo
+                Chick Timer</button>
+            <button id="mondoreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'mondo', 'mondobutton', 'mondoreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="mondo" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <img src="media/monstericons/mondo.png" class="icons">
+            <button id="commandobutton" class="timerbuttons" name="Commando Chick"
+                onclick="driveTimer('commando', 'commandobutton', 'commandoreset')">Start
+                Commando Chick Timer</button>
+            <button id="commandoreset" class="resetbuttons"
+                onclick="resetTimer(30*MINUTE, 'commando', 'commandobutton', 'commandoreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="commando" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+    </div>
+
+    <div id="Beesmas" class="tabcontent">
+        <div class="timerrow">
+            <button id="wreathbutton" class="timerbuttons" name="Wreath"
+                onclick="driveTimer('wreath', 'wreathbutton', 'wreathreset')">Start Wreath
+                Timer</button>
+            <button id="wreathreset" class="resetbuttons"
+                onclick="resetTimer(30*MINUTE, 'wreath', 'wreathbutton', 'wreathreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="wreath" value="0d 0h 30m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="housebutton" class="timerbuttons" name="GingerBear House"
+                onclick="driveTimer('house', 'housebutton', 'housereset')">Start
+                GingerBear House Timer</button>
+            <button id="housereset" class="resetbuttons"
+                onclick="resetTimer(2*HOUR, 'house', 'housebutton', 'housereset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="house" value="0d 2h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="stockingbutton" class="timerbuttons" name="Stocking"
+                onclick="driveTimer('stocking', 'stockingbutton', 'stockingreset')">Start
+                Stocking Timer</button>
+            <button id="stockingreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'stocking', 'stockingbutton', 'stockingreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="stocking" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="feastbutton" class="timerbuttons" name="Feast"
+                onclick="driveTimer('feast', 'feastbutton', 'feastreset')">Start Feast
+                Timer</button>
+            <button id="feastreset" class="resetbuttons"
+                onclick="resetTimer((1*HOUR + 30*MINUTE), 'feast', 'feastbutton', 'feastreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="feast" value="0d 1h 30m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="snowbearbutton" class="timerbuttons" name="Snow Bear"
+                onclick="driveTimer('snowbear', 'snowbearbutton', 'snowbearreset')">Start
+                Snow Bear Timer</button>
+            <button id="snowbearreset" class="resetbuttons"
+                onclick="resetTimer((1*HOUR + 30*MINUTE), 'snowbear', 'snowbearbutton', 'snowbearreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="snowbear" value="0d 1h 30m 0s ">
+            </form>
+        </div>
+    </div>
+
+    <div id="Memory" class="tabcontent">
+        <div class="timerrow">
+            <button id="matchAbutton" class="timerbuttons" name="Match (25K)"
+                onclick="driveTimer('matchA', 'matchAbutton', 'matchAreset')">Start Match
+                (25K) Timer</button>
+            <button id="matchAreset" class="resetbuttons"
+                onclick="resetTimer(2*HOUR, 'matchA', 'matchAbutton', 'matchAreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="matchA" value="0d 2h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="matchBbutton" class="timerbuttons" name="Match (500K)"
+                onclick="driveTimer('matchB', 'matchBbutton', 'matchBreset')">Start Mega
+                Match (500K) Timer</button>
+            <button id="matchBreset" class="resetbuttons"
+                onclick="resetTimer(4*HOUR, 'matchB', 'matchBbutton', 'matchBreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="matchB" value="0d 4h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="matchCbutton" class="timerbuttons" name="Match (Night)"
+                onclick="driveTimer('matchC', 'matchCbutton', 'matchCreset')">Start Night
+                Match (5M) Timer</button>
+            <button id="matchCreset" class="resetbuttons"
+                onclick="resetTimer((2*HOUR * 3), 'matchC', 'matchCbutton', 'matchCreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="matchC" value="0d 6h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="matchDbutton" class="timerbuttons" name="Match (25M)"
+                onclick="driveTimer('matchD', 'matchDbutton', 'matchDreset')">Start
+                Extreme Match (25M) Timer</button>
+            <button id="matchDreset" class="resetbuttons"
+                onclick="resetTimer((4*HOUR * 2), 'matchD', 'matchDbutton', 'matchDreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="matchD" value="0d 8h 0m 0s ">
+            </form>
+        </div>
+    </div>
+
+    <div id="Dispenser" class="tabcontent">
+        <div class="timerrow">
+            <button id="blueberrybutton" class="timerbuttons" name="Blueberry Dispenser"
+                onclick="driveTimer('blueberry', 'blueberrybutton', 'blueberryreset')">Start
+                Blueberry Dispenser Timer</button>
+            <button id="blueberryreset" class="resetbuttons"
+                onclick="resetTimer(4*HOUR, 'blueberry', 'blueberrybutton', 'blueberryreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="blueberry" value="0d 4h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="strawdisbutton" class="timerbuttons" name="Strawberry Dispenser"
+                onclick="driveTimer('strawdis', 'strawdisbutton', 'strawdisreset')">Start
+                Strawberry Dispenser Timer</button>
+            <button id="strawdisreset" class="resetbuttons"
+                onclick="resetTimer(4*HOUR, 'strawdis', 'strawdisbutton', 'strawdisreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="strawdis" value="0d 4h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="spawnclubbutton" class="timerbuttons" name="Club Dispenser (Honey)"
+                onclick="driveTimer('spawnclub', 'spawnclubbutton', 'spawnclubreset')">Start
+                Honey Club Dispenser Timer</button>
+            <button id="spawnclubreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'spawnclub', 'spawnclubbutton', 'spawnclubreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="spawnclub" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+        <br>
+        <div class="timerrow">
+            <button id="pineclubbutton" class="timerbuttons" name="Club Dispenser (Treat)"
+                onclick="driveTimer('pineclub', 'pineclubbutton', 'pineclubreset')">Start
+                Treat Club Dispenser Timer</button>
+            <button id="pineclubreset" class="resetbuttons"
+                onclick="resetTimer(1*HOUR, 'pineclub', 'pineclubbutton', 'pineclubreset')">Reset
+                to Default</button>
+            <form>
+                <input type="text" class="timerdisplays" autocomplete="off" id="pineclub" value="0d 1h 0m 0s ">
+            </form>
+        </div>
+    </div>
+
+    <div id="Settings" class="tabcontent">
+        <div class="optionelements">
+            <input type="checkbox" id="mutebutton" class="menuticks"
+                onclick="mute(false); toggleCookie('mutebutton','mute','true','false')">
+            <label for="mutebutton"> Mute Timer Alarms</label>
+            <br>
+            <input type="checkbox" id="alarmchooser" class="menuticks"
+                onclick="toggleCookie('alarmchooser','alarmPreference','basic','default')">
+            <label for="alarmchooser"> Use Basic Alarm Sound (Warning: Annoying) </label>
+            <br>
+            <label for="volumeslider">Alarm Volume</label>
+            <input type="range" min="0" max="100" class="slider" id="volumeslider"
+                onmouseup="playAlarm(); setCookie('volume', value)">
+            <label for="volumeslider" id="percent"></label>
+            <script>
+                var slider = document.getElementById("volumeslider");
+                var percent = document.getElementById("percent");
+                percent.innerHTML = slider.value + "%";
+                slider.oninput = function () { percent.innerHTML = this.value + "%"; };
+            </script>
+            <br>
+            <input type="checkbox" id="remembertab" class="menuticks"
+                onclick="toggleCookie('remembertab','rememberTab','true','false')">
+            <label for="remembertab">Remember Last Tab Opened</label>
+        </div>
+
+    </div>
+
+    <div id="Changelog" class="tabcontent">
+        <p style="white-space:pre-line"><u>BSSUtil ver. 1.3b</u>
+            Many quality of life changes including:
+            - Cookies! &#127850;
+            &emsp;- Timers will now continue to count even after the site has been closed or refreshed.
+            &emsp;- Your settings will be saved between sessions
+            - Full refactoring of code to improve readiability and organization
+            - Reset button confirmation now disappears on mouse off 
+            - Autocomplete for timer displays now disabled
+
+
+            <u>BSSUtil ver. 1.3a</u>
+            Mostly backend changes to support future alarm updates.
+            - Adds volume slider in settings.
+            - Mute button now mutes active sounds.
+
+
+            <u>BSSUtil ver. 1.3</u>
+            Increased functionality was the focus, but also adds some nice QOL:
+            - Added images to the Monster Timers tab for visual clarity.
+            - Added Finished Timers list to better identify what timers went off (and in what order).
+            - Added Settings tab:
+            + Added option to mute timer alert sounds
+            + Added option to switch between the funny streamer man's alarm and a more basic (and way more annoying)
+            alarm.
+            +++ Currently the audio plays to the end regardless of if the timer is reset. This will be addressed in a
+            future update.
+            - Added Mushroom timer (which was somehow missing this whole time?)
+            - Added Wind Shrine timer
+
+
+            <u>BSSUtil ver. 1.2b</u>
+            Hotfix for looping audio, plus other updates.
+            - Audio no longer loops/stacks when a timer completes.
+            - Incorrectly formatted custom time inputs are no longer accepted, which would previously break the program.
+
+
+            <u>BSSUtil ver. 1.2a</u>
+            Hotfix for bug related to timers ending.
+            - When a timer ended, pressing the corresponding "Start Timer" button would begin the timer with a null
+            value and required a page refresh.
+            - This is temporarily fixed by disabling the "Start Timer" button until the timer is refreshed with the
+            reset button.
+            - A more permanent fix will be added in 1.3.
+
+
+            <u>Planned updates:</u>
+            - Unique timer end sounds for different timers/custom sound
+            - Toggleable dark mode
+            - Images for visual clarity
+            - Volume adjustment
+            - Repeating alert sound until interaction
+            - Layout for phones
+            - Index tab for reference
+            - More clarity as to what timer finished last
+        </p>
+    </div>
+
+
+    <div class="listofended">
+        <h1>Finished Timers (Most Recent Listed First):</h1>
+        <form>
+            <input type="text" id="thelist" class="listformat" value="" disabled>
+        </form>
+    </div>
+    <footer>hehe surprise :D</footer>
+</body>
+
+</html>
