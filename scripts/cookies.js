@@ -1,7 +1,8 @@
 
 function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";path=/";
-    console.log("Setting " + cname + " to " + cvalue);
+    let expires = "expires=Fri, 31 Dec 9999 23:59:59 GMT";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+//    console.log("Setting " + cname + " to " + cvalue);
 }
 
 function getCookie(cname) {

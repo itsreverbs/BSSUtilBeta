@@ -7,6 +7,7 @@ const DAY = 86400;
 //the globals that handle intervals
 var x = [];
 var idIndex = 0;
+var runningTimers = [];
 
 //starts the timer
 //duration: length of the timer
@@ -21,6 +22,8 @@ function startTimer(duration, pid, bid, resetbid) {
     document.getElementById(resetbid).setAttribute("name", idIndex.toString());
     idIndex++;
 
+    runningTimers.push(resetbid);
+
     //update every second
     x.push(setInterval(function () {
         //get current date/time
@@ -28,7 +31,7 @@ function startTimer(duration, pid, bid, resetbid) {
 
         //duration of the countdown
         var distance = timerEnd - now;
-        document.getElementById(bid).disabled = true;
+
 
         setCookie(pid + "Distance", distance);
         setCookie("LastKnownTime", now);
@@ -53,21 +56,21 @@ function startTimer(duration, pid, bid, resetbid) {
 
 //resets the timer
 function resetTimer(duration, pid, bid, resetbid) {
+
     clearAudios();
     //get the button, handles uncertainty
     var resetButton = document.getElementById(resetbid);
+    // console.log(resetButton.name + ":" + document.getElementById("giftedbox").checked);
+    if (resetButton.className == "resetbuttons monster" && document.getElementById("giftedbox").checked === true) {
+        duration = duration * 0.85;
+    }
     if (resetButton.innerText == "Reset to Default") {
         resetButton.innerText = "Are you sure?";
-
-        // setTimeout(function () {
-        //         resetButton.innerText = "Reset to Default";
-        //     }, 1500);
         resetButton.addEventListener("mouseleave", function () {
             resetButton.innerText = "Reset to Default";
         });
     } else {
-        setCookie(pid + "Distance", "");
-        setCookie(pid + "LastKnownTime", "");
+
         resetButton.innerText = "Reset to Default";
         //get the interval id to be cleared
         var clearId = resetButton.getAttribute("name");
@@ -78,6 +81,12 @@ function resetTimer(duration, pid, bid, resetbid) {
         if (document.getElementById(pid).value == "Timer done!") {
             updateList(bid);
         }
+
+
+
+        runningResetId = runningTimers.indexOf(bid);
+        runningTimers.splice(runningResetId, 1);
+
         //write the default time to the screen
         duration = duration * 1000;
         var days = Math.floor(duration / (1000 * 60 * 60 * 24));
@@ -86,6 +95,15 @@ function resetTimer(duration, pid, bid, resetbid) {
         var seconds = Math.floor((duration % (1000 * 60)) / 1000);
         document.getElementById(pid).value = days + "d " + hours + "h " +
             minutes + "m " + seconds + "s ";
+        // upon refreshing the page with the gifted checkbox checked it will reset all of the monster timers
+        // and only after doing this will the inittimer code run. By delaying how long it takes for the cookies
+        // to be reset upon the reset button being clicked, enough time is given for the initcookies script to start
+        // the monster timers back before their cookies are reset by the giftedVic codef
+        setTimeout(function () {
+            setCookie(pid + "Distance", "");
+            setCookie(pid + "LastKnownTime", "");
+        }, 500);
+
     }
 }
 
@@ -104,6 +122,7 @@ function parseInput(value) {
 }
 
 function driveTimer(pid, bid, resetbid) {
+    document.getElementById(bid).disabled = true;
     var ogValue = document.getElementById(pid).value;
     var realValue = parseInput(ogValue);
     if (realValue == -1) {
@@ -143,5 +162,29 @@ function updateList(bid) {
         bidArray.push(bid);
         var ogvalue = list.value;
         list.value = "- " + name + " -" + ogvalue;
+    }
+}
+
+function updateForGifted() {
+    var resetButtons = document.getElementsByClassName("resetbuttons");
+    for (const currButton of resetButtons) {
+        if (currButton.className === "resetbuttons monster" && runningTimers.indexOf(currButton.id) == -1) {
+            //dont touch this it works fuck you and die
+            if (document.getElementById("giftedbox").checked == true) {
+                currButton.click();
+                currButton.click();
+                currButton.click();
+                const mouseLeaveEvent = new Event("mouseleave");
+                currButton.dispatchEvent(mouseLeaveEvent);
+            }
+            else {
+                currButton.click();
+                currButton.click();
+                currButton.click();
+                currButton.click();
+                const mouseLeaveEvent = new Event("mouseleave");
+                currButton.dispatchEvent(mouseLeaveEvent);
+            }
+        }
     }
 }

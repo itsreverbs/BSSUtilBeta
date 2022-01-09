@@ -1,8 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 <!-- TODO: change update list to UL -->
+
 <head>
-    <title>BSSUtil 1.3b</title>
+    <title>BSSUtil 1.3c</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-    <h1>BSSUtil 1.3b</h1>
+    <h1>BSSUtil 1.3c</h1>
     <h2>Created by Reverbs & Batyoullfly</h2>
 
     <div class="tab">
@@ -119,7 +120,7 @@
             <button id="mushroombutton" class="timerbuttons" name="(LBG) Mushroom Enemies"
                 onclick="driveTimer('mushroom', 'mushroombutton', 'mushroomreset')">(LBG)
                 Start Mushroom Enemy Timer</button>
-            <button id="mushroomreset" class="resetbuttons"
+            <button id="mushroomreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'mushroom', 'mushroombutton', 'mushroomreset')">Reset
                 to Default</button>
             <form>
@@ -132,7 +133,7 @@
             <button id="cloverbutton" class="timerbuttons" name="(LBG RNO) Clover Enemies"
                 onclick="driveTimer('clover', 'cloverbutton', 'cloverreset')">(LBG RNO)
                 Start Clover Enemy Timer</button>
-            <button id="cloverreset" class="resetbuttons"
+            <button id="cloverreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'clover', 'cloverbutton', 'cloverreset')">Reset
                 to Default</button>
             <form>
@@ -145,7 +146,7 @@
             <button id="bluefieldbutton" class="timerbuttons" name="(RNO) Blue Flower Enemies"
                 onclick="driveTimer('bluefield', 'bluefieldbutton', 'bluefieldreset')">(RNO)
                 Start Blue Flower Enemy Timer</button>
-            <button id="bluefieldreset" class="resetbuttons"
+            <button id="bluefieldreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'bluefield', 'bluefieldbutton', 'bluefieldreset')">Reset
                 to Default</button>
             <form>
@@ -158,7 +159,7 @@
             <button id="strawberrybutton" class="timerbuttons" name="(LBG) Strawberry Enemies"
                 onclick="driveTimer('strawberry', 'strawberrybutton', 'strawberryreset')">(LBG)
                 Start Strawberry Enemy Timer</button>
-            <button id="strawberryreset" class="resetbuttons"
+            <button id="strawberryreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'strawberry', 'strawberrybutton', 'strawberryreset')">Reset
                 to Default</button>
             <form>
@@ -171,11 +172,11 @@
             <button id="spiderbutton" class="timerbuttons" name="(SPR) Spider"
                 onclick="driveTimer('spider', 'spiderbutton', 'spiderreset')">(SPR) Start
                 Spider Enemy Timer</button>
-            <button id="spiderreset" class="resetbuttons"
-                onclick="resetTimer(1*HOUR, 'spider', 'spiderbutton', 'spiderreset')">Reset
+            <button id="spiderreset" class="resetbuttons monster"
+                onclick="resetTimer(0.5*HOUR, 'spider', 'spiderbutton', 'spiderreset')">Reset
                 to Default</button>
             <form>
-                <input type="text" class="timerdisplays" autocomplete="off" id="spider" value="0d 1h 0m 0s ">
+                <input type="text" class="timerdisplays" autocomplete="off" id="spider" value="0d 0h 30m 0s ">
             </form>
         </div>
         <br>
@@ -184,7 +185,7 @@
             <button id="bamboobutton" class="timerbuttons" name="(RNO) Bamboo Enemies"
                 onclick="driveTimer('bamboo', 'bamboobutton', 'bambooreset')">(RNO) Start
                 Bamboo Enemy Timer</button>
-            <button id="bambooreset" class="resetbuttons"
+            <button id="bambooreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'bamboo', 'bamboobutton', 'bambooreset')">Reset
                 to Default</button>
             <form>
@@ -197,7 +198,7 @@
             <button id="rosebutton" class="timerbuttons" name="(SPN) Rose Enemies"
                 onclick="driveTimer('rose', 'rosebutton', 'rosereset')">(SPN) Start Rose
                 Enemy Timer</button>
-            <button id="rosereset" class="resetbuttons"
+            <button id="rosereset" class="resetbuttons monster"
                 onclick="resetTimer((10*MINUTE * 2), 'rose', 'rosebutton', 'rosereset')">Reset
                 to Default</button>
             <form>
@@ -210,7 +211,7 @@
             <button id="pinebutton" class="timerbuttons" name="(MTS) Pine Enemies"
                 onclick="driveTimer('pine', 'pinebutton', 'pinereset')">(MTS) Start Pine
                 Enemy Timer</button>
-            <button id="pinereset" class="resetbuttons"
+            <button id="pinereset" class="resetbuttons monster"
                 onclick="resetTimer((10*MINUTE * 2), 'pine', 'pinebutton', 'pinereset')">Reset
                 to Default</button>
             <form>
@@ -223,7 +224,7 @@
             <button id="pinerhinobutton" class="timerbuttons" name="(RNO) Pineapple Enemies"
                 onclick="driveTimer('pinerhino', 'pinerhinobutton', 'pinerhinoreset')">(RNO)
                 Start Pineapple Enemy Timer</button>
-            <button id="pinerhinoreset" class="resetbuttons"
+            <button id="pinerhinoreset" class="resetbuttons monster"
                 onclick="resetTimer(5*MINUTE, 'pinerhino', 'pinerhinobutton', 'pinerhinoreset')">Reset
                 to Default</button>
             <form>
@@ -236,7 +237,7 @@
             <button id="pinemantisbutton" class="timerbuttons" name="(MTS) Pineapple Enemies"
                 onclick="driveTimer('pinemantis', 'pinemantisbutton', 'pinemantisreset')">(MTS)
                 Start Pineapple Enemy Timer</button>
-            <button id="pinemantisreset" class="resetbuttons"
+            <button id="pinemantisreset" class="resetbuttons monster"
                 onclick="resetTimer((10*MINUTE * 2), 'pinemantis', 'pinemantisbutton', 'pinemantisreset')">Reset
                 to Default</button>
             <form>
@@ -249,7 +250,7 @@
             <button id="werewolfbutton" class="timerbuttons" name="Werewolf"
                 onclick="driveTimer('werewolf', 'werewolfbutton', 'werewolfreset')">
                 Start Werewolf Enemy Timer</button>
-            <button id="werewolfreset" class="resetbuttons"
+            <button id="werewolfreset" class="resetbuttons monster"
                 onclick="resetTimer(1*HOUR, 'werewolf', 'werewolfbutton', 'werewolfreset')">Reset
                 to Default</button>
             <form>
@@ -262,7 +263,7 @@
             <button id="mondobutton" class="timerbuttons" name="Mondo Chick"
                 onclick="driveTimer('mondo', 'mondobutton', 'mondoreset')">Start Mondo
                 Chick Timer</button>
-            <button id="mondoreset" class="resetbuttons"
+            <button id="mondoreset" class="resetbuttons monster"
                 onclick="resetTimer(1*HOUR, 'mondo', 'mondobutton', 'mondoreset')">Reset
                 to Default</button>
             <form>
@@ -275,7 +276,7 @@
             <button id="commandobutton" class="timerbuttons" name="Commando Chick"
                 onclick="driveTimer('commando', 'commandobutton', 'commandoreset')">Start
                 Commando Chick Timer</button>
-            <button id="commandoreset" class="resetbuttons"
+            <button id="commandoreset" class="resetbuttons monster"
                 onclick="resetTimer(30*MINUTE, 'commando', 'commandobutton', 'commandoreset')">Reset
                 to Default</button>
             <form>
@@ -470,18 +471,28 @@
             <input type="checkbox" id="remembertab" class="menuticks"
                 onclick="toggleCookie('remembertab','rememberTab','true','false')">
             <label for="remembertab">Remember Last Tab Opened</label>
+            <br>
+            <input type="checkbox" id="giftedbox" class="menuticks"
+                onclick="toggleCookie('giftedbox','giftedBox','true','false'); updateForGifted()">
+            <label for="giftedbox">Adjust Times for Gifted Vicious Bee</label>
         </div>
 
     </div>
 
     <div id="Changelog" class="tabcontent">
-        <p style="white-space:pre-line"><u>BSSUtil ver. 1.3b</u>
+        <p style="white-space:pre-line"><u>BSSUtil ver. 1.3c</u>
+            Minor update to add a new feature and fix some bugs
+            - New option to adjust monster timers for Vicious Bee
+            - Start timer buttons are no longer able to be clicked twice, which would break the functionality.
+
+
+            <u>BSSUtil ver. 1.3b</u>
             Many quality of life changes including:
             - Cookies! &#127850;
             &emsp;- Timers will now continue to count even after the site has been closed or refreshed.
             &emsp;- Your settings will be saved between sessions
             - Full refactoring of code to improve readiability and organization
-            - Reset button confirmation now disappears on mouse off 
+            - Reset button confirmation now disappears on mouse off
             - Autocomplete for timer displays now disabled
 
 

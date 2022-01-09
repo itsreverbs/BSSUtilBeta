@@ -5,6 +5,7 @@ var alarmChooser = document.getElementById("alarmchooser");
 var volumeSlider = document.getElementById("volumeslider");
 var percentLabel = document.getElementById("percent");
 var rememberTabCheckbox = document.getElementById("remembertab");
+var giftedCheckbox = document.getElementById("giftedbox");
 if (getCookie("mute") == "true") {
     muteButton.click();
 }
@@ -16,10 +17,12 @@ if (getCookie("volume") != "") {
     volumeSlider.value = getCookie("volume");
     percentLabel.innerText = getCookie("volume") + "%";
 }
+if (getCookie("giftedBox") == "true") {
+    giftedCheckbox.click();
+}
 if (getCookie("rememberTab") == "true") {
     rememberTabCheckbox.click();
 }
-
 // initialize timers
 const inputs = document.getElementsByClassName("timerdisplays");
 const timerButtons = document.getElementsByClassName("timerbuttons");
@@ -48,6 +51,5 @@ for (let i = 0; i < inputs.length; i++) {
         input.value = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
         button.click();
-        console.log("heya");
     }
 }
